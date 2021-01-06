@@ -27,8 +27,15 @@ object OrderService {
 
     fun processOrder(
         input: String?
-    ): Map<String, Int> {
+    ): Map<String, Int>? {
         val itemsWithCount: Map<String, Int> = input!!.split(",").map { it.trim() }.groupingBy { it }.eachCount()
+        itemsWithCount.forEach { (k, v) ->
+            if (stockMap.getOrDefault(k, 0) < v) {
+                NotificationService.publish(OrderStatus("Some item(s) of Order are Out Of Stock"))
+                return null
+            }
+        }
+        NotificationService.publish(OrderStatus("Order Received"))
         println("\n\n")
         println("========================")
         println("GrabGoods OnlineShopping")

@@ -20,8 +20,11 @@ class OrderServiceKtTest {
 
     @Test
     fun calcBillWithMultipleItems() {
-        val itemsWithCount: Map<String, Int> = mapOf("Apple" to 2, "Orange" to 2, "Guava" to 1)
-        assertEquals(2.0, OrderService.calculateBill(itemsWithCount), 0.0)
+        val itemsWithCountAppleOffer: Map<String, Int> = mapOf("Apple" to 2, "Orange" to 2, "Guava" to 1)
+        assertEquals(1.4, OrderService.calculateBill(itemsWithCountAppleOffer), 0.001)
+
+        val itemsWithCountOrangeOffer: Map<String, Int> = mapOf("Apple" to 1, "Orange" to 4, "Guava" to 1)
+        assertEquals(1.65, OrderService.calculateBill(itemsWithCountOrangeOffer), 0.001)
     }
 
     @Test

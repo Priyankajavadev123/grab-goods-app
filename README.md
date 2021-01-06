@@ -7,10 +7,14 @@ Order Service maintains `stockMap` and `priceMap` data of Goods
 
 And provides functionality which
 - **Processes Order** 
+    - Checks Whether All Order Items available with StockMap
+    - Prints Order Items (with Count of Each Item, Price per Item)
 - **Calculates Bill**
+    - Applies Offer and Calculates Total Bill
 
-### _Interaction Command Line:_
+## _Interaction Command Line:_
 
+### Step 1
 Please input your order with comma separated goods 
 
 **Input**
@@ -28,6 +32,7 @@ Orange 	(1) 	: 0.25
 ========================
 Total 		: 1.75
 ```
+### Step 2
 
 #### After Offers In Place
 
@@ -50,8 +55,9 @@ Apple 	(2) 	: 0.6
 Total 		: 0.60
 ```
 
+### Step 3 & 4
 #### With Notification Service 
-##### - Order Received Message
+##### - Step 3) Order Received Message
 Available Stock {Apple=20, Orange=15, Guava=2} 
 
 Please input your order with comma separated goods 
@@ -74,7 +80,7 @@ Orange 	(1) 	: 0.25
 ========================
 Total 		: 0.85
 ```
-##### - Limited Stock Message
+##### - Step 4) Limited Stock Message
 Available Stock {Apple=20, Orange=15, Guava=2} 
 
 Please input your order with comma separated goods 
